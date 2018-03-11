@@ -1,8 +1,8 @@
 name: progress_hud
 description: A clean and lightweight progress HUD for your Flutter app
 version: 0.0.1
-author:
-homepage:
+author: Rafael Passos
+homepage: https://github.com/rcpassos/progress_hud
 
 dependencies:
   flutter:
