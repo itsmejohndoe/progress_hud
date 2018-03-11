@@ -2,6 +2,8 @@
 
 A clean and lightweight progress HUD for your Flutter app
 
+https://pub.dartlang.org/packages/progress_hud
+
 ## Example
 ```dart
 return new Scaffold(
