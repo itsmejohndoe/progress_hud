@@ -4,6 +4,9 @@ version: 0.0.1
 author: Rafael Passos <r.passos@outlook.pt>
 homepage: https://github.com/rcpassos/progress_hud
 
+environment:
+  sdk: ">=1.23.0 <2.0.0"
+
 dependencies:
   flutter:
     sdk: flutter
