@@ -8,13 +8,13 @@ class ProgressHUD extends StatelessWidget {
   final Color containerColor;
   final double borderRadius;
 
-  ProgressHUD({
-    Key key,
-    this.backgroundColor = Colors.black54,
-    this.color = Colors.white,
-    this.containerColor = Colors.transparent,
-    this.borderRadius = 10.0
-  }) : super(key: key);
+  ProgressHUD(
+      {Key key,
+      this.backgroundColor = Colors.black54,
+      this.color = Colors.white,
+      this.containerColor = Colors.transparent,
+      this.borderRadius = 10.0})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -29,18 +29,14 @@ class ProgressHUD extends StatelessWidget {
                 decoration: new BoxDecoration(
                     color: containerColor,
                     borderRadius: new BorderRadius.all(
-                        new Radius.circular(borderRadius)
-                    )
-                ),
+                        new Radius.circular(borderRadius))),
               ),
             ),
             new Center(
               child: new CircularProgressIndicator(
-                  valueColor: new AlwaysStoppedAnimation(color)
-              ),
+                  valueColor: new AlwaysStoppedAnimation(color)),
             ),
           ],
-        )
-    );
+        ));
   }
 }
