@@ -8,9 +8,7 @@ https://pub.dartlang.org/packages/progress_hud
 ```dart
 return new Scaffold(
   appBar: new AppBar(
-    // Here we take the value from the MyHomePage object that was created by
-    // the App.build method, and use it to set our appbar title.
-    title: new Text(widget.title),
+    title: new Text('ProgressHUD Demo'),
   ),
   body: new Stack(
     children: <Widget>[
@@ -19,13 +17,14 @@ return new Scaffold(
       ),
       new ProgressHUD(
         backgroundColor: Colors.black12,
-        color: Colors.orange
+        color: Colors.white,
+        containerColor: Colors.blue,
+        borderRadius: 5.0,
       )
     ],
   )
 );
 ```
-
 
 ## Showcase
 
