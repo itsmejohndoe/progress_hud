@@ -7,13 +7,15 @@ class ProgressHUD extends StatelessWidget {
   final Color color;
   final Color containerColor;
   final double borderRadius;
+  final String text;
 
   ProgressHUD(
       {Key key,
       this.backgroundColor = Colors.black54,
       this.color = Colors.white,
       this.containerColor = Colors.transparent,
-      this.borderRadius = 10.0})
+      this.borderRadius = 10.0,
+      this.text})
       : super(key: key);
 
   @override
@@ -33,10 +35,38 @@ class ProgressHUD extends StatelessWidget {
               ),
             ),
             new Center(
-              child: new CircularProgressIndicator(
-                  valueColor: new AlwaysStoppedAnimation(color)),
-            ),
+              child: _getCenterContent(),
+            )
           ],
         ));
+  }
+
+  Widget _getCenterContent() {
+    if (text == null || text.isEmpty) {
+      return _getCircularProgress();
+    }
+
+    return new Center(
+      child: new Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          _getCircularProgress(),
+          new Container(
+            margin: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+            child: new Text(text,
+              style: new TextStyle(
+                color: color
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  Widget _getCircularProgress() {
+    return new CircularProgressIndicator(
+        valueColor: new AlwaysStoppedAnimation(color)
+    );
   }
 }

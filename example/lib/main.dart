@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.white,
               containerColor: Colors.blue,
               borderRadius: 5.0,
+              text: 'Loading...',
             )
           ],
         ));

@@ -1,3 +1,7 @@
+## [0.2.2]
+
+* Now can be passed a text, and this text it will appear below the circular progress indicator
+
 ## [0.1.2]
 
 * Code improvements based on dartfmt, pubspec file improvements and added an example project
