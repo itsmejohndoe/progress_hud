@@ -53,10 +53,9 @@ class ProgressHUD extends StatelessWidget {
           _getCircularProgress(),
           new Container(
             margin: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
-            child: new Text(text,
-              style: new TextStyle(
-                color: color
-              ),
+            child: new Text(
+              text,
+              style: new TextStyle(color: color),
             ),
           )
         ],
@@ -66,7 +65,6 @@ class ProgressHUD extends StatelessWidget {
 
   Widget _getCircularProgress() {
     return new CircularProgressIndicator(
-        valueColor: new AlwaysStoppedAnimation(color)
-    );
+        valueColor: new AlwaysStoppedAnimation(color));
   }
 }

@@ -1,6 +1,6 @@
 name: progress_hud
 description: progress_hud is a clean and lightweight HUD meant to display the progress of an ongoing task on your Flutter app
-version: 0.1.2
+version: 0.2.2
 author: Rafael Passos <r.passos@outlook.pt>
 homepage: https://github.com/rcpassos/progress_hud
 
