@@ -28,4 +28,4 @@ return new Scaffold(
 
 ## Showcase
 
-![](https://github.com/rcpassos/progress_hud/blob/master/progress_hud.gif)
+![](https://media.giphy.com/media/ir9XMNj8dIKcflkp21/giphy.gif)
