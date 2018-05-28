@@ -2,12 +2,14 @@ library progress_hud;
 
 import 'package:flutter/material.dart';
 
-class ProgressHUD extends StatelessWidget {
+class ProgressHUD extends StatefulWidget {
   final Color backgroundColor;
   final Color color;
   final Color containerColor;
   final double borderRadius;
   final String text;
+  final bool loading;
+  _ProgressHUDState state;
 
   ProgressHUD(
       {Key key,
@@ -15,34 +17,69 @@ class ProgressHUD extends StatelessWidget {
       this.color = Colors.white,
       this.containerColor = Colors.transparent,
       this.borderRadius = 10.0,
-      this.text})
+      this.text,
+      this.loading = true})
       : super(key: key);
 
   @override
+  _ProgressHUDState createState() {
+    state = new _ProgressHUDState();
+
+    return state;
+  }
+}
+
+class _ProgressHUDState extends State<ProgressHUD> {
+  bool _visible = true;
+
+  @override
+  void initState() {
+    super.initState();
+
+    _visible = widget.loading;
+  }
+
+  void dismiss() {
+    setState(() {
+      this._visible = false;
+    });
+  }
+
+  void show() {
+    setState(() {
+      this._visible = true;
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return new Scaffold(
-        backgroundColor: backgroundColor,
-        body: new Stack(
-          children: <Widget>[
-            new Center(
-              child: new Container(
-                width: 100.0,
-                height: 100.0,
-                decoration: new BoxDecoration(
-                    color: containerColor,
-                    borderRadius: new BorderRadius.all(
-                        new Radius.circular(borderRadius))),
+    if (_visible) {
+      return new Scaffold(
+          backgroundColor: widget.backgroundColor,
+          body: new Stack(
+            children: <Widget>[
+              new Center(
+                child: new Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: new BoxDecoration(
+                      color: widget.containerColor,
+                      borderRadius: new BorderRadius.all(
+                          new Radius.circular(widget.borderRadius))),
+                ),
               ),
-            ),
-            new Center(
-              child: _getCenterContent(),
-            )
-          ],
-        ));
+              new Center(
+                child: _getCenterContent(),
+              )
+            ],
+          ));
+    } else {
+      return new Container();
+    }
   }
 
   Widget _getCenterContent() {
-    if (text == null || text.isEmpty) {
+    if (widget.text == null || widget.text.isEmpty) {
       return _getCircularProgress();
     }
 
@@ -54,8 +91,8 @@ class ProgressHUD extends StatelessWidget {
           new Container(
             margin: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
             child: new Text(
-              text,
-              style: new TextStyle(color: color),
+              widget.text,
+              style: new TextStyle(color: widget.color),
             ),
           )
         ],
@@ -65,6 +102,6 @@ class ProgressHUD extends StatelessWidget {
 
   Widget _getCircularProgress() {
     return new CircularProgressIndicator(
-        valueColor: new AlwaysStoppedAnimation(color));
+        valueColor: new AlwaysStoppedAnimation(widget.color));
   }
 }

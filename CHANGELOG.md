@@ -1,3 +1,7 @@
+## [1.0.0]
+
+* Added the methods to show and dismiss the progress hud from parent widget
+
 ## [0.2.2]
 
 * Now can be passed a text, and this text it will appear below the circular progress indicator
