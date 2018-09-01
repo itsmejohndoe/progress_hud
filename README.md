@@ -1,7 +1,9 @@
-# progress_hud
+# progress_hud_v2
 
-A clean and lightweight progress HUD for your Flutter app
+Homepage:
+https://github.com/pablo384/progress_hud
 
+A clean and lightweight progress HUD for your Flutter app based on the original progress_hud:
 https://pub.dartlang.org/packages/progress_hud
 
 ## Example

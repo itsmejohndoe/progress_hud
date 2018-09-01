@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:progress_hud/progress_hud.dart';
+import 'package:progress_hud_v2/progress_hud.dart';
 
 void main() => runApp(new MyApp());
 

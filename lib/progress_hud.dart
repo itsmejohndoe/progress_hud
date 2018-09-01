@@ -1,4 +1,4 @@
-library progress_hud;
+library progress_hud_v2;
 
 import 'package:flutter/material.dart';
 
