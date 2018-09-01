@@ -1,3 +1,7 @@
+## [2.0.0]
+
+* Update Dart and Test version.
+
 ## [1.0.0]
 
 * Added the methods to show and dismiss the progress hud from parent widget
