@@ -7,12 +7,13 @@ class ProgressHUD extends StatefulWidget {
   final Color color;
   final Color containerColor;
   final double borderRadius;
-  final String text;
+  final String? text;
   final bool loading;
-  _ProgressHUDState state;
+
+  late _ProgressHUDState state;
 
   ProgressHUD(
-      {Key key,
+      {key,
       this.backgroundColor = Colors.black54,
       this.color = Colors.white,
       this.containerColor = Colors.transparent,
@@ -23,8 +24,7 @@ class ProgressHUD extends StatefulWidget {
 
   @override
   _ProgressHUDState createState() {
-    state = new _ProgressHUDState();
-
+    state = _ProgressHUDState();
     return state;
   }
 }
@@ -54,45 +54,44 @@ class _ProgressHUDState extends State<ProgressHUD> {
   @override
   Widget build(BuildContext context) {
     if (_visible) {
-      return new Scaffold(
+      return Scaffold(
           backgroundColor: widget.backgroundColor,
-          body: new Stack(
+          body: Stack(
             children: <Widget>[
-              new Center(
-                child: new Container(
+              Center(
+                child: Container(
                   width: 100.0,
                   height: 100.0,
-                  decoration: new BoxDecoration(
+                  decoration: BoxDecoration(
                       color: widget.containerColor,
-                      borderRadius: new BorderRadius.all(
-                          new Radius.circular(widget.borderRadius))),
+                      borderRadius: BorderRadius.all(Radius.circular(widget.borderRadius))),
                 ),
               ),
-              new Center(
+              Center(
                 child: _getCenterContent(),
               )
             ],
           ));
     } else {
-      return new Container();
+      return Container();
     }
   }
 
   Widget _getCenterContent() {
-    if (widget.text == null || widget.text.isEmpty) {
+    if (widget.text == null || widget.text?.isEmpty == true) {
       return _getCircularProgress();
     }
 
-    return new Center(
-      child: new Column(
+    return Center(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           _getCircularProgress(),
-          new Container(
+          Container(
             margin: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
-            child: new Text(
-              widget.text,
-              style: new TextStyle(color: widget.color),
+            child: Text(
+              widget.text!,
+              style: TextStyle(color: widget.color),
             ),
           )
         ],
@@ -100,8 +99,5 @@ class _ProgressHUDState extends State<ProgressHUD> {
     );
   }
 
-  Widget _getCircularProgress() {
-    return new CircularProgressIndicator(
-        valueColor: new AlwaysStoppedAnimation(widget.color));
-  }
+  Widget _getCircularProgress() => CircularProgressIndicator(valueColor: AlwaysStoppedAnimation(widget.color));
 }

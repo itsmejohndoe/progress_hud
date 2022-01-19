@@ -1,6 +1,9 @@
 name: example
 description: A progress_hud example
 
+environment:
+  sdk: '>=2.12.0 <3.0.0'
+
 dependencies:
   flutter:
     sdk: flutter
